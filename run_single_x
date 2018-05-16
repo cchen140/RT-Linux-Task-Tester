@@ -7,18 +7,24 @@ task_params=$3
 
 #echo $task_params
 
-# Clear the kernel log
-sudo cp /var/log/kern.log.org /var/log/kern.log
-sudo service rsyslog stop
-sudo service rsyslog start
+# Clear kernel log messages from dmesg
+#sudo cp /var/log/kern.log.org /var/log/kern.log
+#sudo service rsyslog stop
+#sudo service rsyslog start
+sudo dmesg -c > console_black_hole
 
 #echo "Running $program"
 sudo ./x $duration $task_params > console_black_hole
 
-cs=`sudo cat /var/log/kern.log | grep -c context`
-pick=`sudo cat /var/log/kern.log | grep -c picked`
-budget=`sudo cat /var/log/kern.log | grep -c budget`
-rad=`sudo cat /var/log/kern.log | grep -c "(rad)"`
+#cs=`sudo cat /var/log/kern.log | grep -c context`
+#pick=`sudo cat /var/log/kern.log | grep -c picked`
+#budget=`sudo cat /var/log/kern.log | grep -c budget`
+#rad=`sudo cat /var/log/kern.log | grep -c "(rad)"`
+cs=`dmesg | grep -c context`
+pick=`dmesg | grep -c picked`
+budget=`dmesg | grep -c budget`
+rad=`dmesg | grep -c "(rad)"`
+
 
 # Make sure the log folder is there
 if [ ! -d log ]; then
@@ -37,7 +43,7 @@ if [ ! -d $log_dir_name/extracts ]; then
 	mkdir $log_dir_name/extracts
 fi
 
-raw_log_name=/var/log/kern.log
+#raw_log_name=/var/log/kern.log
 extract_log_path=$log_dir_name/extracts/$log_id.txt
 cp /dev/null $extract_log_path
 sum=0
@@ -54,7 +60,8 @@ do
 		((sum = sum + this_value))
 		((count++))
 	fi
-done <<< "$(cat $raw_log_name)"
+#done <<< "$(cat $raw_log_name)"
+done <<< "$(dmesg)"
 
 average=`echo "$sum/$count" | bc -l`
 
@@ -78,9 +85,11 @@ output_str="pick:$pick, rad:$rad, radratio:$rad_ratio, mean:$average, stdev:$std
 
 echo "$log_id: \"$task_params\"" > $log_dir_name/$log_id.txt
 echo -e "$output_str" >> $log_dir_name/$log_id.txt
-sudo cat /var/log/kern.log >> $log_dir_name/$log_id.txt
+#sudo cat /var/log/kern.log >> $log_dir_name/$log_id.txt
+dmesg >> $log_dir_name/$log_id.txt
 
 # Output results
+## Check if the log contains raw messages from dmesg (it should be more than two lines if so).
 log_result=`cat $log_dir_name/$log_id.txt | wc -l`
 if (( $log_result == 2 )); then
 	echo "Test error occurs for $log_id."
