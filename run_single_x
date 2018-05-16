@@ -1,0 +1,90 @@
+#!/bin/bash
+
+log_dir_name=log/log
+log_id=$1
+duration=$2
+task_params=$3
+
+#echo $task_params
+
+# Clear the kernel log
+sudo cp /var/log/kern.log.org /var/log/kern.log
+sudo service rsyslog stop
+sudo service rsyslog start
+
+#echo "Running $program"
+sudo ./x $duration $task_params > console_black_hole
+
+cs=`sudo cat /var/log/kern.log | grep -c context`
+pick=`sudo cat /var/log/kern.log | grep -c picked`
+budget=`sudo cat /var/log/kern.log | grep -c budget`
+rad=`sudo cat /var/log/kern.log | grep -c "(rad)"`
+
+# Make sure the log folder is there
+if [ ! -d log ]; then
+	mkdir log
+fi
+
+if [ ! -d $log_dir_name ]; then
+	mkdir $log_dir_name
+fi
+#echo -e "cs=$cs, pick=$pick, budget=$budget, rad=$rad" > $log_dir_name/$program.txt
+#sudo cat /var/log/kern.log >> $log_dir_name/$program.txt
+
+
+# Extract values
+if [ ! -d $log_dir_name/extracts ]; then
+	mkdir $log_dir_name/extracts
+fi
+
+raw_log_name=/var/log/kern.log
+extract_log_path=$log_dir_name/extracts/$log_id.txt
+cp /dev/null $extract_log_path
+sum=0
+count=0
+
+while read line
+do
+	if [[ $line == *picked* ]];then
+		this_value=`echo ${line##*. }`
+		#echo ${line##*. } >> $extract_log_path
+		echo "$this_value" >> $extract_log_path
+		#sum=`echo "$sum+$this_value" | bc`
+		#count=`echo "$count+1" | bc`
+		((sum = sum + this_value))
+		((count++))
+	fi
+done <<< "$(cat $raw_log_name)"
+
+average=`echo "$sum/$count" | bc -l`
+
+#for (( i=1; i<=$count; i++ ))
+stdev_sum=0
+
+while read line
+do
+	diff_square=`echo "($line - $average)^2" | bc`
+	stdev_sum=`echo "$stdev_sum + $diff_square" | bc -l`
+done <<< "$(cat $extract_log_path)"
+stdev=`echo "sqrt($diff_square/($count-1))" | bc -l`
+
+
+#Compute standard error
+stderror=`echo "$stdev/sqrt($count)" | bc -l`
+
+rad_ratio=`echo "$rad/$pick" | bc -l`
+
+output_str="pick:$pick, rad:$rad, radratio:$rad_ratio, mean:$average, stdev:$stdev, sem:$stderror"
+
+echo "$log_id: \"$task_params\"" > $log_dir_name/$log_id.txt
+echo -e "$output_str" >> $log_dir_name/$log_id.txt
+sudo cat /var/log/kern.log >> $log_dir_name/$log_id.txt
+
+# Output results
+log_result=`cat $log_dir_name/$log_id.txt | wc -l`
+if (( $log_result == 2 )); then
+	echo "Test error occurs for $log_id."
+else
+#	echo "Test done."
+	echo "$output_str"
+fi

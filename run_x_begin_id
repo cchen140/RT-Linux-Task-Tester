@@ -1,0 +1,62 @@
+#!/bin/bash
+#
+test_duration=$1
+#test_rounds=$2
+#begin_round=$3
+#begin_task=$4
+test_begin_id=$2
+taskset_file_path=$3
+
+echo "Mass test begins."
+
+log_folder_path=log/log
+
+# Make sure the log folder is there
+if [ ! -d log ]; then
+	mkdir log
+fi
+
+if [ ! -d $log_folder_path ]; then
+	mkdir $log_folder_path
+fi
+
+#cp /dev/null $log_folder_path/summary.txt 
+
+test_id=1
+while read line
+do
+	if [[ $line == *Number* ]];then
+		str_array=($line)
+		num_of_tasks=${str_array[3]}
+	fi
+
+	if [[ $line == *Periods* ]];then
+		period_string=`echo ${line##*[}`
+		period_string=`echo ${period_string%%]*}`
+	fi
+	if [[ $line == *WCETS* ]];then
+
+		if ((test_id < test_begin_id));then
+			((test_id++))
+			continue
+		fi
+
+		wcet_string=`echo ${line##*[}`
+		wcet_string=`echo ${wcet_string%%]*}`
+
+		echo " Testing $test_id: $num_of_tasks: \"$period_string $wcet_string\"."
+		result=`./run_single_x $test_id $test_duration "$period_string $wcet_string"`
+		if [[ $result == *rror* ]]; then
+			echo "An error occurs running program."
+			exit
+		else
+			output_str="$test_id: $num_of_tasks: $result"
+			echo $output_str >> $log_folder_path/summary.txt
+			echo $output_str
+		fi
+		((test_id++))
+	fi
+done <<< "$(cat $taskset_file_path)"
+
+
+

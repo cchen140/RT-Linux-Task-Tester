@@ -1,0 +1,663 @@
+Generating Tasksets...
+=========================
+Number of Tasks 1
+Total Utilizations: 0.852
+Periods: [22]
+WCETS: [19]
+Utilizations: [0.852]
+=========================
+Number of Tasks 1
+Total Utilizations: 0.84
+Periods: [22]
+WCETS: [19]
+Utilizations: [0.84]
+=========================
+Number of Tasks 1
+Total Utilizations: 0.845
+Periods: [97]
+WCETS: [82]
+Utilizations: [0.845]
+=========================
+Number of Tasks 1
+Total Utilizations: 0.845
+Periods: [82]
+WCETS: [70]
+Utilizations: [0.845]
+=========================
+Number of Tasks 1
+Total Utilizations: 0.823
+Periods: [37]
+WCETS: [31]
+Utilizations: [0.823]
+=========================
+Number of Tasks 1
+Total Utilizations: 0.845
+Periods: [89]
+WCETS: [76]
+Utilizations: [0.845]
+=========================
+Number of Tasks 1
+Total Utilizations: 0.873
+Periods: [55]
+WCETS: [49]
+Utilizations: [0.873]
+=========================
+Number of Tasks 1
+Total Utilizations: 0.838
+Periods: [69]
+WCETS: [58]
+Utilizations: [0.838]
+=========================
+Number of Tasks 1
+Total Utilizations: 0.865
+Periods: [61]
+WCETS: [53]
+Utilizations: [0.865]
+=========================
+Number of Tasks 1
+Total Utilizations: 0.851
+Periods: [20]
+WCETS: [18]
+Utilizations: [0.851]
+=========================
+Number of Tasks 1
+Total Utilizations: 0.871
+Periods: [54]
+WCETS: [48]
+Utilizations: [0.871]
+=========================
+Number of Tasks 2
+Total Utilizations: 0.858
+Periods: [40, 45]
+WCETS: [2, 38]
+Utilizations: [0.029, 0.829]
+=========================
+Number of Tasks 2
+Total Utilizations: 0.872
+Periods: [87, 36]
+WCETS: [1, 32]
+Utilizations: [0.009, 0.863]
+=========================
+Number of Tasks 2
+Total Utilizations: 0.846
+Periods: [67, 24]
+WCETS: [38, 7]
+Utilizations: [0.566, 0.28]
+=========================
+Number of Tasks 2
+Total Utilizations: 0.875
+Periods: [10, 64]
+WCETS: [5, 28]
+Utilizations: [0.441, 0.434]
+=========================
+Number of Tasks 2
+Total Utilizations: 0.8440000000000001
+Periods: [47, 74]
+WCETS: [3, 60]
+Utilizations: [0.044, 0.8]
+=========================
+Number of Tasks 2
+Total Utilizations: 0.841
+Periods: [23, 22]
+WCETS: [6, 13]
+Utilizations: [0.26, 0.581]
+=========================
+Number of Tasks 2
+Total Utilizations: 0.88
+Periods: [30, 28]
+WCETS: [19, 8]
+Utilizations: [0.618, 0.262]
+=========================
+Number of Tasks 2
+Total Utilizations: 0.8300000000000001
+Periods: [46, 99]
+WCETS: [37, 5]
+Utilizations: [0.787, 0.043]
+=========================
+Number of Tasks 2
+Total Utilizations: 0.876
+Periods: [83, 89]
+WCETS: [42, 34]
+Utilizations: [0.498, 0.378]
+=========================
+Number of Tasks 2
+Total Utilizations: 0.877
+Periods: [66, 67]
+WCETS: [44, 15]
+Utilizations: [0.666, 0.211]
+=========================
+Number of Tasks 2
+Total Utilizations: 0.877
+Periods: [78, 80]
+WCETS: [19, 52]
+Utilizations: [0.234, 0.643]
+=========================
+Number of Tasks 3
+Total Utilizations: 0.822
+Periods: [61, 55, 64]
+WCETS: [5, 3, 46]
+Utilizations: [0.079, 0.038, 0.705]
+=========================
+Number of Tasks 3
+Total Utilizations: 0.827
+Periods: [18, 90, 51]
+WCETS: [9, 11, 11]
+Utilizations: [0.493, 0.119, 0.215]
+=========================
+Number of Tasks 3
+Total Utilizations: 0.845
+Periods: [68, 80, 54]
+WCETS: [4, 29, 24]
+Utilizations: [0.047, 0.354, 0.444]
+=========================
+Number of Tasks 3
+Total Utilizations: 0.848
+Periods: [37, 54, 35]
+WCETS: [3, 34, 6]
+Utilizations: [0.072, 0.624, 0.152]
+=========================
+Number of Tasks 3
+Total Utilizations: 0.855
+Periods: [53, 10, 85]
+WCETS: [14, 4, 25]
+Utilizations: [0.256, 0.317, 0.282]
+=========================
+Number of Tasks 3
+Total Utilizations: 0.8540000000000001
+Periods: [72, 14, 82]
+WCETS: [35, 1, 29]
+Utilizations: [0.476, 0.035, 0.343]
+=========================
+Number of Tasks 3
+Total Utilizations: 0.821
+Periods: [24, 97, 43]
+WCETS: [6, 3, 25]
+Utilizations: [0.231, 0.023, 0.567]
+=========================
+Number of Tasks 3
+Total Utilizations: 0.838
+Periods: [51, 19, 89]
+WCETS: [9, 11, 11]
+Utilizations: [0.158, 0.565, 0.115]
+=========================
+Number of Tasks 3
+Total Utilizations: 0.865
+Periods: [83, 35, 78]
+WCETS: [19, 4, 43]
+Utilizations: [0.218, 0.107, 0.54]
+=========================
+Number of Tasks 3
+Total Utilizations: 0.842
+Periods: [48, 25, 26]
+WCETS: [9, 2, 17]
+Utilizations: [0.172, 0.051, 0.619]
+=========================
+Number of Tasks 3
+Total Utilizations: 0.865
+Periods: [49, 45, 32]
+WCETS: [11, 17, 10]
+Utilizations: [0.211, 0.357, 0.297]
+=========================
+Number of Tasks 4
+Total Utilizations: 0.873
+Periods: [52, 22, 83, 88]
+WCETS: [1, 2, 25, 46]
+Utilizations: [0.004, 0.062, 0.294, 0.513]
+=========================
+Number of Tasks 4
+Total Utilizations: 0.8700000000000001
+Periods: [86, 18, 21, 22]
+WCETS: [55, 3, 1, 2]
+Utilizations: [0.635, 0.145, 0.037, 0.053]
+=========================
+Number of Tasks 4
+Total Utilizations: 0.879
+Periods: [81, 72, 36, 36]
+WCETS: [13, 8, 10, 13]
+Utilizations: [0.152, 0.104, 0.274, 0.349]
+=========================
+Number of Tasks 4
+Total Utilizations: 0.835
+Periods: [97, 88, 66, 93]
+WCETS: [18, 4, 3, 54]
+Utilizations: [0.184, 0.038, 0.042, 0.571]
+=========================
+Number of Tasks 4
+Total Utilizations: 0.842
+Periods: [28, 75, 58, 55]
+WCETS: [2, 34, 6, 15]
+Utilizations: [0.053, 0.44, 0.089, 0.26]
+=========================
+Number of Tasks 4
+Total Utilizations: 0.8380000000000001
+Periods: [51, 97, 47, 79]
+WCETS: [17, 5, 1, 37]
+Utilizations: [0.315, 0.051, 0.011, 0.461]
+=========================
+Number of Tasks 4
+Total Utilizations: 0.821
+Periods: [16, 57, 97, 17]
+WCETS: [4, 16, 17, 4]
+Utilizations: [0.197, 0.27, 0.174, 0.18]
+=========================
+Number of Tasks 4
+Total Utilizations: 0.8599999999999999
+Periods: [65, 46, 47, 28]
+WCETS: [7, 9, 25, 2]
+Utilizations: [0.107, 0.176, 0.512, 0.065]
+=========================
+Number of Tasks 4
+Total Utilizations: 0.842
+Periods: [61, 81, 74, 31]
+WCETS: [29, 4, 18, 3]
+Utilizations: [0.47, 0.04, 0.241, 0.091]
+=========================
+Number of Tasks 4
+Total Utilizations: 0.843
+Periods: [82, 92, 61, 48]
+WCETS: [14, 53, 7, 1]
+Utilizations: [0.161, 0.569, 0.11, 0.003]
+=========================
+Number of Tasks 4
+Total Utilizations: 0.843
+Periods: [19, 51, 19, 98]
+WCETS: [8, 12, 3, 7]
+Utilizations: [0.405, 0.219, 0.153, 0.066]
+=========================
+Number of Tasks 5
+Total Utilizations: 0.8560000000000001
+Periods: [55, 50, 10, 77, 60]
+WCETS: [21, 7, 2, 10, 3]
+Utilizations: [0.379, 0.128, 0.19, 0.117, 0.042]
+=========================
+Number of Tasks 5
+Total Utilizations: 0.86
+Periods: [39, 20, 19, 65, 50]
+WCETS: [7, 8, 2, 6, 7]
+Utilizations: [0.17, 0.392, 0.075, 0.085, 0.138]
+=========================
+Number of Tasks 5
+Total Utilizations: 0.8490000000000001
+Periods: [67, 33, 41, 54, 57]
+WCETS: [6, 14, 3, 2, 15]
+Utilizations: [0.081, 0.418, 0.065, 0.032, 0.253]
+=========================
+Number of Tasks 5
+Total Utilizations: 0.829
+Periods: [20, 26, 89, 35, 83]
+WCETS: [3, 10, 11, 3, 13]
+Utilizations: [0.11, 0.364, 0.123, 0.076, 0.156]
+=========================
+Number of Tasks 5
+Total Utilizations: 0.866
+Periods: [49, 20, 62, 59, 80]
+WCETS: [2, 8, 1, 19, 13]
+Utilizations: [0.027, 0.36, 0.01, 0.315, 0.154]
+=========================
+Number of Tasks 5
+Total Utilizations: 0.8220000000000001
+Periods: [29, 63, 52, 56, 74]
+WCETS: [3, 7, 10, 10, 20]
+Utilizations: [0.097, 0.103, 0.192, 0.171, 0.259]
+=========================
+Number of Tasks 5
+Total Utilizations: 0.8380000000000001
+Periods: [82, 100, 91, 36, 95]
+WCETS: [7, 4, 18, 19, 2]
+Utilizations: [0.077, 0.037, 0.195, 0.515, 0.014]
+=========================
+Number of Tasks 5
+Total Utilizations: 0.876
+Periods: [48, 33, 92, 11, 84]
+WCETS: [2, 7, 12, 1, 43]
+Utilizations: [0.033, 0.191, 0.124, 0.021, 0.507]
+=========================
+Number of Tasks 5
+Total Utilizations: 0.8790000000000001
+Periods: [51, 26, 18, 58, 53]
+WCETS: [12, 1, 1, 31, 3]
+Utilizations: [0.23, 0.038, 0.032, 0.528, 0.051]
+=========================
+Number of Tasks 5
+Total Utilizations: 0.87
+Periods: [87, 57, 89, 34, 19]
+WCETS: [61, 1, 5, 4, 1]
+Utilizations: [0.694, 0.001, 0.05, 0.115, 0.01]
+=========================
+Number of Tasks 5
+Total Utilizations: 0.851
+Periods: [38, 70, 62, 29, 72]
+WCETS: [6, 1, 2, 8, 30]
+Utilizations: [0.142, 0.014, 0.025, 0.266, 0.404]
+=========================
+Number of Tasks 6
+Total Utilizations: 0.867
+Periods: [83, 52, 86, 100, 43, 66]
+WCETS: [12, 3, 5, 11, 6, 26]
+Utilizations: [0.143, 0.044, 0.047, 0.104, 0.135, 0.394]
+=========================
+Number of Tasks 6
+Total Utilizations: 0.8230000000000001
+Periods: [91, 94, 75, 35, 21, 26]
+WCETS: [8, 42, 13, 1, 1, 3]
+Utilizations: [0.078, 0.446, 0.169, 0.013, 0.028, 0.089]
+=========================
+Number of Tasks 6
+Total Utilizations: 0.8480000000000001
+Periods: [59, 42, 50, 21, 55, 40]
+WCETS: [1, 1, 17, 2, 19, 3]
+Utilizations: [0.013, 0.009, 0.33, 0.094, 0.34, 0.062]
+=========================
+Number of Tasks 6
+Total Utilizations: 0.876
+Periods: [28, 31, 93, 10, 60, 66]
+WCETS: [5, 7, 11, 1, 6, 19]
+Utilizations: [0.153, 0.218, 0.116, 0.009, 0.1, 0.28]
+=========================
+Number of Tasks 6
+Total Utilizations: 0.841
+Periods: [16, 74, 58, 48, 42, 43]
+WCETS: [1, 33, 4, 6, 1, 9]
+Utilizations: [0.029, 0.445, 0.062, 0.111, 0.007, 0.187]
+=========================
+Number of Tasks 6
+Total Utilizations: 0.8460000000000001
+Periods: [90, 31, 87, 54, 71, 15]
+WCETS: [7, 4, 7, 4, 14, 6]
+Utilizations: [0.073, 0.116, 0.078, 0.058, 0.187, 0.334]
+=========================
+Number of Tasks 6
+Total Utilizations: 0.8480000000000001
+Periods: [95, 75, 23, 32, 20, 73]
+WCETS: [6, 20, 3, 2, 2, 24]
+Utilizations: [0.057, 0.266, 0.097, 0.038, 0.068, 0.322]
+=========================
+Number of Tasks 6
+Total Utilizations: 0.8759999999999999
+Periods: [69, 32, 10, 20, 53, 88]
+WCETS: [13, 2, 2, 7, 2, 16]
+Utilizations: [0.178, 0.044, 0.137, 0.317, 0.028, 0.172]
+=========================
+Number of Tasks 6
+Total Utilizations: 0.8210000000000001
+Periods: [69, 40, 21, 84, 88, 94]
+WCETS: [18, 1, 2, 37, 3, 5]
+Utilizations: [0.249, 0.015, 0.061, 0.429, 0.023, 0.044]
+=========================
+Number of Tasks 6
+Total Utilizations: 0.864
+Periods: [37, 44, 16, 90, 39, 54]
+WCETS: [11, 9, 2, 8, 7, 2]
+Utilizations: [0.272, 0.2, 0.098, 0.084, 0.173, 0.037]
+=========================
+Number of Tasks 6
+Total Utilizations: 0.87
+Periods: [17, 10, 94, 14, 68, 66]
+WCETS: [4, 1, 2, 3, 28, 4]
+Utilizations: [0.205, 0.035, 0.02, 0.145, 0.412, 0.053]
+=========================
+Number of Tasks 7
+Total Utilizations: 0.8280000000000001
+Periods: [38, 35, 56, 16, 96, 91, 38]
+WCETS: [1, 1, 1, 1, 61, 11, 1]
+Utilizations: [0.01, 0.01, 0.009, 0.031, 0.629, 0.115, 0.024]
+=========================
+Number of Tasks 7
+Total Utilizations: 0.844
+Periods: [27, 87, 56, 98, 44, 10, 52]
+WCETS: [1, 7, 13, 18, 2, 3, 5]
+Utilizations: [0.016, 0.08, 0.215, 0.178, 0.03, 0.238, 0.087]
+=========================
+Number of Tasks 7
+Total Utilizations: 0.8279999999999998
+Periods: [74, 94, 86, 10, 94, 21, 28]
+WCETS: [22, 6, 6, 2, 10, 1, 6]
+Utilizations: [0.284, 0.055, 0.061, 0.133, 0.103, 0.01, 0.182]
+=========================
+Number of Tasks 7
+Total Utilizations: 0.8379999999999999
+Periods: [88, 95, 85, 78, 42, 24, 25]
+WCETS: [2, 7, 3, 19, 8, 1, 8]
+Utilizations: [0.02, 0.072, 0.03, 0.232, 0.179, 0.002, 0.303]
+=========================
+Number of Tasks 7
+Total Utilizations: 0.8780000000000001
+Periods: [46, 23, 14, 28, 53, 90, 55]
+WCETS: [5, 7, 3, 6, 4, 4, 4]
+Utilizations: [0.107, 0.266, 0.174, 0.179, 0.062, 0.034, 0.056]
+=========================
+Number of Tasks 7
+Total Utilizations: 0.853
+Periods: [29, 55, 57, 100, 54, 27, 27]
+WCETS: [1, 5, 5, 1, 23, 7, 1]
+Utilizations: [0.006, 0.077, 0.078, 0.003, 0.42, 0.252, 0.017]
+=========================
+Number of Tasks 7
+Total Utilizations: 0.8280000000000001
+Periods: [26, 51, 93, 66, 83, 15, 90]
+WCETS: [5, 1, 2, 8, 18, 1, 25]
+Utilizations: [0.158, 0.008, 0.011, 0.115, 0.21, 0.054, 0.272]
+=========================
+Number of Tasks 7
+Total Utilizations: 0.8540000000000001
+Periods: [80, 91, 52, 77, 90, 88, 82]
+WCETS: [12, 26, 2, 9, 1, 14, 11]
+Utilizations: [0.138, 0.28, 0.038, 0.108, 0.01, 0.156, 0.124]
+=========================
+Number of Tasks 7
+Total Utilizations: 0.8280000000000001
+Periods: [73, 97, 90, 58, 75, 37, 56]
+WCETS: [9, 2, 5, 3, 1, 16, 10]
+Utilizations: [0.118, 0.017, 0.05, 0.049, 0.005, 0.428, 0.161]
+=========================
+Number of Tasks 7
+Total Utilizations: 0.8740000000000001
+Periods: [35, 44, 81, 64, 78, 43, 32]
+WCETS: [3, 3, 5, 4, 7, 23, 2]
+Utilizations: [0.066, 0.056, 0.059, 0.054, 0.082, 0.521, 0.036]
+=========================
+Number of Tasks 7
+Total Utilizations: 0.831
+Periods: [70, 53, 63, 58, 29, 79, 77]
+WCETS: [5, 6, 1, 10, 1, 14, 22]
+Utilizations: [0.071, 0.105, 0.013, 0.17, 0.02, 0.167, 0.285]
+=========================
+Number of Tasks 8
+Total Utilizations: 0.8540000000000001
+Periods: [46, 23, 32, 53, 62, 44, 70, 26]
+WCETS: [1, 1, 9, 1, 6, 7, 22, 1]
+Utilizations: [0.006, 0.026, 0.265, 0.007, 0.084, 0.158, 0.302, 0.006]
+=========================
+Number of Tasks 8
+Total Utilizations: 0.8359999999999999
+Periods: [90, 100, 47, 53, 38, 70, 95, 74]
+WCETS: [3, 22, 9, 3, 3, 15, 3, 7]
+Utilizations: [0.026, 0.213, 0.172, 0.04, 0.074, 0.205, 0.021, 0.085]
+=========================
+Number of Tasks 8
+Total Utilizations: 0.86
+Periods: [88, 52, 52, 97, 79, 80, 47, 51]
+WCETS: [5, 3, 4, 13, 5, 38, 1, 2]
+Utilizations: [0.052, 0.054, 0.072, 0.129, 0.052, 0.47, 0.009, 0.022]
+=========================
+Number of Tasks 8
+Total Utilizations: 0.8609999999999999
+Periods: [29, 35, 87, 49, 37, 58, 42, 99]
+WCETS: [1, 1, 6, 9, 9, 14, 3, 9]
+Utilizations: [0.032, 0.004, 0.063, 0.165, 0.226, 0.224, 0.059, 0.088]
+=========================
+Number of Tasks 8
+Total Utilizations: 0.8570000000000001
+Periods: [23, 68, 74, 38, 93, 91, 18, 71]
+WCETS: [1, 5, 5, 3, 34, 3, 1, 16]
+Utilizations: [0.021, 0.068, 0.06, 0.054, 0.365, 0.029, 0.041, 0.219]
+=========================
+Number of Tasks 8
+Total Utilizations: 0.852
+Periods: [34, 12, 31, 61, 22, 17, 69, 54]
+WCETS: [2, 1, 12, 4, 2, 1, 2, 14]
+Utilizations: [0.052, 0.013, 0.378, 0.057, 0.089, 0.001, 0.016, 0.246]
+=========================
+Number of Tasks 8
+Total Utilizations: 0.8440000000000001
+Periods: [66, 34, 45, 20, 72, 65, 57, 18]
+WCETS: [3, 5, 1, 1, 4, 34, 3, 1]
+Utilizations: [0.034, 0.139, 0.002, 0.029, 0.043, 0.522, 0.041, 0.034]
+=========================
+Number of Tasks 8
+Total Utilizations: 0.85
+Periods: [49, 66, 71, 87, 29, 32, 25, 64]
+WCETS: [1, 39, 1, 10, 3, 1, 1, 2]
+Utilizations: [0.001, 0.579, 0.0, 0.114, 0.098, 0.029, 0.005, 0.024]
+=========================
+Number of Tasks 8
+Total Utilizations: 0.86
+Periods: [87, 75, 45, 48, 23, 13, 78, 52]
+WCETS: [2, 9, 3, 17, 4, 2, 7, 3]
+Utilizations: [0.015, 0.113, 0.045, 0.337, 0.134, 0.084, 0.081, 0.051]
+=========================
+Number of Tasks 8
+Total Utilizations: 0.8500000000000001
+Periods: [88, 34, 21, 90, 37, 100, 75, 22]
+WCETS: [2, 2, 3, 16, 3, 40, 2, 1]
+Utilizations: [0.016, 0.033, 0.122, 0.167, 0.064, 0.392, 0.02, 0.036]
+=========================
+Number of Tasks 8
+Total Utilizations: 0.864
+Periods: [29, 71, 99, 92, 47, 70, 71, 74]
+WCETS: [1, 3, 35, 7, 10, 1, 6, 10]
+Utilizations: [0.006, 0.034, 0.352, 0.067, 0.198, 0.007, 0.072, 0.128]
+=========================
+Number of Tasks 9
+Total Utilizations: 0.8489999999999999
+Periods: [56, 18, 40, 42, 62, 87, 17, 93, 99]
+WCETS: [5, 1, 1, 5, 11, 12, 2, 15, 9]
+Utilizations: [0.085, 0.035, 0.002, 0.118, 0.176, 0.133, 0.059, 0.157, 0.084]
+=========================
+Number of Tasks 9
+Total Utilizations: 0.841
+Periods: [84, 61, 92, 64, 99, 55, 23, 98, 88]
+WCETS: [1, 1, 23, 2, 5, 2, 6, 3, 18]
+Utilizations: [0.004, 0.006, 0.242, 0.02, 0.041, 0.035, 0.26, 0.03, 0.203]
+=========================
+Number of Tasks 9
+Total Utilizations: 0.8230000000000001
+Periods: [77, 79, 65, 90, 94, 46, 30, 12, 28]
+WCETS: [2, 2, 4, 6, 20, 14, 1, 1, 5]
+Utilizations: [0.014, 0.025, 0.05, 0.062, 0.208, 0.298, 0.007, 0.006, 0.153]
+=========================
+Number of Tasks 9
+Total Utilizations: 0.826
+Periods: [23, 27, 22, 63, 27, 68, 32, 71, 90]
+WCETS: [2, 1, 1, 4, 6, 15, 4, 9, 2]
+Utilizations: [0.07, 0.012, 0.039, 0.051, 0.198, 0.208, 0.106, 0.124, 0.018]
+=========================
+Number of Tasks 9
+Total Utilizations: 0.83
+Periods: [100, 83, 64, 39, 85, 10, 35, 26, 46]
+WCETS: [12, 3, 5, 1, 1, 3, 2, 2, 8]
+Utilizations: [0.114, 0.035, 0.077, 0.02, 0.008, 0.289, 0.052, 0.071, 0.164]
+=========================
+Number of Tasks 9
+Total Utilizations: 0.8240000000000002
+Periods: [47, 54, 64, 63, 56, 16, 43, 50, 78]
+WCETS: [3, 9, 5, 6, 10, 1, 8, 4, 1]
+Utilizations: [0.062, 0.164, 0.073, 0.085, 0.171, 0.03, 0.169, 0.063, 0.007]
+=========================
+Number of Tasks 9
+Total Utilizations: 0.834
+Periods: [29, 86, 38, 36, 10, 52, 38, 93, 25]
+WCETS: [4, 4, 6, 2, 1, 4, 10, 3, 3]
+Utilizations: [0.123, 0.044, 0.157, 0.051, 0.05, 0.062, 0.239, 0.026, 0.082]
+=========================
+Number of Tasks 9
+Total Utilizations: 0.845
+Periods: [27, 74, 77, 43, 60, 18, 78, 20, 57]
+WCETS: [1, 6, 12, 5, 1, 1, 3, 9, 2]
+Utilizations: [0.014, 0.069, 0.151, 0.107, 0.012, 0.025, 0.027, 0.418, 0.022]
+=========================
+Number of Tasks 9
+Total Utilizations: 0.873
+Periods: [91, 93, 18, 31, 46, 38, 67, 32, 36]
+WCETS: [5, 10, 2, 4, 1, 1, 30, 2, 2]
+Utilizations: [0.049, 0.106, 0.078, 0.106, 0.019, 0.004, 0.443, 0.033, 0.035]
+=========================
+Number of Tasks 9
+Total Utilizations: 0.843
+Periods: [80, 14, 13, 64, 34, 30, 44, 90, 82]
+WCETS: [3, 2, 3, 4, 7, 2, 2, 17, 3]
+Utilizations: [0.037, 0.085, 0.181, 0.055, 0.186, 0.061, 0.029, 0.179, 0.03]
+=========================
+Number of Tasks 9
+Total Utilizations: 0.868
+Periods: [55, 94, 36, 12, 13, 59, 74, 27, 16]
+WCETS: [1, 23, 7, 1, 1, 5, 6, 1, 3]
+Utilizations: [0.009, 0.237, 0.179, 0.065, 0.057, 0.085, 0.076, 0.002, 0.158]
+=========================
+Number of Tasks 10
+Total Utilizations: 0.843
+Periods: [60, 19, 76, 93, 17, 64, 43, 42, 73, 18]
+WCETS: [2, 1, 7, 5, 3, 1, 1, 4, 10, 5]
+Utilizations: [0.024, 0.033, 0.082, 0.048, 0.163, 0.013, 0.012, 0.087, 0.129, 0.252]
+=========================
+Number of Tasks 10
+Total Utilizations: 0.869
+Periods: [53, 14, 82, 11, 56, 23, 59, 84, 88, 45]
+WCETS: [2, 3, 10, 1, 1, 4, 7, 9, 8, 1]
+Utilizations: [0.032, 0.212, 0.119, 0.035, 0.004, 0.153, 0.111, 0.099, 0.083, 0.021]
+=========================
+Number of Tasks 10
+Total Utilizations: 0.8660000000000001
+Periods: [84, 22, 48, 86, 66, 39, 43, 78, 30, 53]
+WCETS: [1, 5, 1, 2, 2, 6, 7, 4, 2, 11]
+Utilizations: [0.005, 0.212, 0.014, 0.018, 0.018, 0.144, 0.157, 0.047, 0.055, 0.196]
+=========================
+Number of Tasks 10
+Total Utilizations: 0.8520000000000001
+Periods: [22, 55, 96, 35, 67, 35, 85, 37, 89, 99]
+WCETS: [1, 1, 4, 5, 6, 1, 12, 2, 30, 5]
+Utilizations: [0.026, 0.002, 0.037, 0.141, 0.086, 0.005, 0.134, 0.041, 0.334, 0.046]
+=========================
+Number of Tasks 10
+Total Utilizations: 0.848
+Periods: [47, 84, 92, 20, 35, 87, 69, 92, 90, 14]
+WCETS: [1, 13, 1, 1, 1, 10, 17, 9, 8, 3]
+Utilizations: [0.004, 0.151, 0.004, 0.01, 0.001, 0.105, 0.234, 0.096, 0.081, 0.162]
+=========================
+Number of Tasks 10
+Total Utilizations: 0.8729999999999999
+Periods: [22, 25, 98, 14, 19, 60, 88, 21, 33, 34]
+WCETS: [2, 3, 12, 2, 4, 6, 2, 2, 3, 2]
+Utilizations: [0.071, 0.09, 0.113, 0.119, 0.174, 0.1, 0.016, 0.089, 0.064, 0.037]
+=========================
+Number of Tasks 10
+Total Utilizations: 0.873
+Periods: [51, 52, 35, 58, 76, 38, 77, 44, 91, 53]
+WCETS: [13, 6, 1, 3, 2, 2, 5, 4, 1, 13]
+Utilizations: [0.253, 0.097, 0.022, 0.035, 0.022, 0.052, 0.064, 0.084, 0.004, 0.24]
+=========================
+Number of Tasks 10
+Total Utilizations: 0.8550000000000001
+Periods: [83, 37, 57, 48, 87, 75, 13, 88, 89, 76]
+WCETS: [8, 3, 3, 1, 15, 1, 2, 12, 5, 17]
+Utilizations: [0.092, 0.064, 0.039, 0.006, 0.172, 0.006, 0.085, 0.128, 0.047, 0.216]
+=========================
+Number of Tasks 10
+Total Utilizations: 0.8210000000000002
+Periods: [99, 53, 11, 83, 47, 73, 96, 41, 32, 81]
+WCETS: [34, 3, 1, 2, 1, 15, 1, 3, 4, 1]
+Utilizations: [0.341, 0.044, 0.01, 0.021, 0.012, 0.194, 0.007, 0.069, 0.121, 0.002]
+=========================
+Number of Tasks 10
+Total Utilizations: 0.872
+Periods: [22, 67, 19, 77, 13, 11, 38, 87, 14, 66]
+WCETS: [5, 1, 4, 2, 2, 1, 2, 7, 2, 10]
+Utilizations: [0.194, 0.002, 0.159, 0.025, 0.078, 0.065, 0.042, 0.077, 0.083, 0.147]
+=========================
+Number of Tasks 10
+Total Utilizations: 0.8740000000000001
+Periods: [56, 19, 14, 92, 57, 33, 58, 88, 37, 56]
+WCETS: [19, 1, 1, 3, 1, 1, 6, 8, 11, 2]
+Utilizations: [0.33, 0.006, 0.006, 0.028, 0.002, 0.022, 0.101, 0.081, 0.27, 0.028]
+=========================
+Script Finished!

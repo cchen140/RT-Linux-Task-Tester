@@ -1,0 +1,5 @@
+Running experiment for 1 seconds.
+main thread [19489]
+deadline thread started [19490] 19000000, 22000000 
+deadline thread dies [19490]
+main dies [19489]
