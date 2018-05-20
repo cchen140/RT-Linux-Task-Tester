@@ -41,16 +41,16 @@ def generate_taskset(n_tasks, util_grp):
 
 
 if __name__ == '__main__':
+    if len(sys.argv) != 2:
+        #raise Exception("Use python TC_GEN_CY.py #util_grp_number (grp_number is from 0 to 8)")
+        print("No argument is given. \nUsage: Gen.py [util_grp] \nUsing default settings (util group = 5).")
+        util_grp = 1
+    else:
+        util_grp = int(sys.argv[1])
 
     n_tasks = 5
     n_task_each_tc = 11
     task_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    util_grp = int(sys.argv[1])
-
-    if len(sys.argv) != 2:
-        raise Exception("Use python TC_GEN_CY.py #util_grp_number (grp_number is from 0 to 8)")
-
-
 
     print("Generating Tasksets...")
     print("=========================")
