@@ -4,6 +4,11 @@ log_dir_name=log/log
 log_id=$1
 duration=$2
 task_params=$3
+log_output_path=$4
+
+if [[ ! -z "${log_output_path// }" ]]; then
+	log_dir_name=$log_output_path
+fi 
 
 #echo $task_params
 

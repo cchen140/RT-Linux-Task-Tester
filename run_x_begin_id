@@ -6,10 +6,11 @@ test_duration=$1
 #begin_task=$4
 test_begin_id=$2
 taskset_file_path=$3
+output_log_id=$4
 
 echo "Mass test begins."
 
-log_folder_path=log/log
+log_folder_path=log/log$output_log_id
 
 # Make sure the log folder is there
 if [ ! -d log ]; then
@@ -45,7 +46,7 @@ do
 		wcet_string=`echo ${wcet_string%%]*}`
 
 		echo " Testing $test_id: $num_of_tasks: \"$period_string $wcet_string\"."
-		result=`./run_single_x $test_id $test_duration "$period_string $wcet_string"`
+		result=`./run_single_x $test_id $test_duration "$period_string $wcet_string" $log_folder_path`
 		if [[ $result == *rror* ]]; then
 			echo "An error occurs running program."
 			exit
