@@ -8,7 +8,7 @@ test_begin_id=$2
 taskset_file_path=$3
 output_log_id=$4
 
-echo "Mass test begins."
+echo "Mass test$output_log_id begins."
 
 log_folder_path=log/log$output_log_id
 
