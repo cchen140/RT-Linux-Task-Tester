@@ -28,7 +28,7 @@ sudo ./x $duration $task_params > console_black_hole
 cs=`dmesg | grep -c context`
 pick=`dmesg | grep -c picked`
 budget=`dmesg | grep -c budget`
-rad=`dmesg | grep -c "(rad)"`
+rad=`dmesg | grep -c -e "(rad)" -e "(idle)"`
 
 
 # Make sure the log folder is there
