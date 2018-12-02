@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -O3 -Wall -lpthread
+CFLAGS = -Wall -lpthread
 
 x:	x.o
 	$(CC) -o $@ $^ $(CFLAGS)
