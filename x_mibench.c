@@ -113,7 +113,6 @@ void *run_deadline(void *data)
 	attr.sched_nice = 0;
 	attr.sched_priority = 0;
 
-	/* This creates a 10ms/30ms reservation */
 	attr.sched_policy = SCHED_DEADLINE;
 	attr.sched_runtime = ((task_params*)data)->runtime;
 	attr.sched_period = attr.sched_deadline = ((task_params*)data)->period;
@@ -124,6 +123,10 @@ void *run_deadline(void *data)
 		perror("sched_setattr");
 		exit(-1);
 	}
+
+	// This configuration is not needed (is not affective in this case):
+	//   Enable this thread's cancellation capability so that other threads can cancel this thread.
+	// pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
 
 	if (((task_params*)data)->mibench_cmd == NULL) {
 		busy_loop_us_time = (attr.sched_runtime/1000)*0.8;
@@ -188,6 +191,8 @@ int main (int argc, char **argv)
 
 	printf("main thread [%ld]\n", gettid());
 
+	sleep(1);
+
 	for (i=0; i<num_of_tasks; i++) {
 		pthread_create(&threads[i], NULL, run_deadline, &task_params_instances[i]);
 	}
@@ -197,6 +202,7 @@ int main (int argc, char **argv)
 	done = 1;
 
 	for (i=0; i<num_of_tasks; i++) {
+		//pthread_cancel(threads[i]);
 		pthread_join(threads[i], NULL);
 	}
 
