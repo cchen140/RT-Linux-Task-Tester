@@ -4,10 +4,10 @@ CFLAGS = -Wall -lpthread
 x:	x.o
 	$(CC) -o $@ $^ $(CFLAGS)
 
-x_mibench:	x_mibench.o
+mix:	mix.o
 	$(CC) -o $@ $^ $(CFLAGS)
 
-all: x x_mibench
+all: x mix
 
 clean:
-	rm -rf *.o x x_mibench output*
+	rm -rf *.o x mix output*
