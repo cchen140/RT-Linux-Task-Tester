@@ -31,6 +31,7 @@
 #endif
 
 typedef struct task_params {
+	char* mibench_cmd;
 	__u64 runtime;	// ns
 	__u64 period;	// ns
 }task_params;
@@ -91,7 +92,7 @@ void busy_loop_us(unsigned int us) {
                 for (j=0;j<51;j++)
                         k=i+j;
         }
-	i = k;  // this is to mute compiler's warnings.
+	i = k;	// this is to mute compiler's warnings.
 }
 
 void *run_deadline(void *data)
@@ -102,6 +103,10 @@ void *run_deadline(void *data)
 	int busy_loop_us_time = 0;
 
 	printf("deadline thread started [%ld] %lld, %lld \n", gettid(), ((task_params*)data)->runtime, ((task_params*)data)->period);
+
+	if (((task_params*)data)->mibench_cmd != NULL) {
+		printf("executing mibench command: \"%s\"\n", ((task_params*)data)->mibench_cmd);
+	}
 
 	attr.size = sizeof(attr);
 	attr.sched_flags = 0;
@@ -120,10 +125,17 @@ void *run_deadline(void *data)
 		exit(-1);
 	}
 
-	busy_loop_us_time = (attr.sched_runtime/1000)*0.8;
-	while (!done) {
-		busy_loop_us(busy_loop_us_time);
-		sched_yield();
+	if (((task_params*)data)->mibench_cmd == NULL) {
+		busy_loop_us_time = (attr.sched_runtime/1000)*0.8;
+		while (!done) {
+			busy_loop_us(busy_loop_us_time);
+			sched_yield();
+		}
+	} else {
+		while (!done) {
+                        system(((task_params*)data)->mibench_cmd);
+                        sched_yield();
+                }
 	}
 
 	printf("deadline thread dies [%ld]\n", gettid());
@@ -132,12 +144,12 @@ void *run_deadline(void *data)
 }
 
 
-
+#define	TASK_PARAMETER_OFFSET	3
 int main (int argc, char **argv)
 {
 	pthread_t threads[30];
-	int num_of_tasks = (argc - 2)/2;
-	int i;
+	int num_of_tasks, num_of_mibench_tasks;
+	int i, j;
 	int exp_time_second = 1;
 
 	if (argc < 3) {
@@ -145,20 +157,34 @@ int main (int argc, char **argv)
 		return 0;
 	}
 
+	num_of_tasks = atoi(argv[2]);
+	printf("%d tasks to be loaded.\n", num_of_tasks);
+
 	exp_time_second = atoi(argv[1]);
 	printf("Running experiment for %d seconds.\n", exp_time_second);
 
 	// periods
 	for (i=0; i<num_of_tasks; i++) {
-		task_params_instances[i].period = atoi(argv[i+2]);
+		task_params_instances[i].period = atoi(argv[i+TASK_PARAMETER_OFFSET]);
 		task_params_instances[i].period *= (1000*1000);
 	}
 
 	// runtime
 	for (i=0; i<num_of_tasks; i++) {
-		task_params_instances[i].runtime = atoi(argv[i+2+num_of_tasks]);
+		task_params_instances[i].runtime = atoi(argv[i+TASK_PARAMETER_OFFSET+num_of_tasks]);
 		task_params_instances[i].runtime *= (1000*1000);
 	}
+
+	// mibench commands
+	num_of_mibench_tasks = argc - TASK_PARAMETER_OFFSET - (2*num_of_tasks);
+	for (i=0; i<num_of_tasks-num_of_mibench_tasks; i++) {
+                task_params_instances[i].mibench_cmd = NULL;
+        }
+	for (i=num_of_tasks-num_of_mibench_tasks, j=0; i<num_of_tasks; i++, j++) {
+		// This task should run a mibench program. Send the cmd directly.
+		task_params_instances[i].mibench_cmd = argv[j+TASK_PARAMETER_OFFSET+(2*num_of_tasks)];
+	}
+	
 
 	printf("main thread [%ld]\n", gettid());
 
