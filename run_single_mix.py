@@ -21,7 +21,7 @@ def run_single(logId, logOutPath, duration, taskParams):
     # Clear dmesg
     subprocess.Popen("sudo dmesg -c > console_black_hole", shell=True)
 
-    completeCommand = "sudo ./mix {} > console_black_hole".format(taskParams)
+    completeCommand = "sudo ./mix {} {} > console_black_hole".format(duration, taskParams)
     subprocess.Popen(completeCommand, shell=True)
     #subprocess.Popen("sudo ./mix 10 1 100 1 > console_black_hole", shell=True)
 
@@ -41,12 +41,15 @@ def run_single(logId, logOutPath, duration, taskParams):
 
     subprocess.Popen("sudo ./mix " + taskParams + " > console_black_hole", shell=True)
 
-    contextSwitchCount = int(subprocess.Popen('dmesg | grep - c context', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT).stdout.readlines()[0])
+    contextSwitchCount = int(subprocess.Popen('dmesg | grep -c context', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT).stdout.readlines()[0])
     totalPickCount = int(subprocess.Popen('dmesg | grep -c picked', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT).stdout.readlines()[0])
     budgetCount = int(subprocess.Popen('dmesg | grep -c budget', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT).stdout.readlines()[0])
     randomPickCount = int(subprocess.Popen('dmesg | grep -c -e "(rad)" -e "(idle)"', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT).stdout.readlines()[0])
 
-    radRatio = randomPickCount / totalPickCount
+    if totalPickCount == 0:
+        radRatio = 0
+    else:
+        radRatio = float(randomPickCount) / totalPickCount
 
     # Extract context switch cost values and compute their average
     costList = []
@@ -60,16 +63,23 @@ def run_single(logId, logOutPath, duration, taskParams):
             cost = int(line.strip().split('.')[-1])
             costSum += cost
             costList.append(cost)
-    averageCost = costSum/len(costList)
 
-    # Compute standard deviation of the context switch cost
-    stdevSum = 0
-    for thisCost in costList:
-        stdevSum += (thisCost-averageCost)**2
-    stdev = (stdevSum/(len(costList)-1))**0.5
+    if len(costList) > 0:
+        averageCost = costSum/len(costList)
 
-    # Compute standard error
-    stderror = stdev/(len(costList)**0.5)
+        # Compute standard deviation of the context switch cost
+        stdevSum = 0
+        for thisCost in costList:
+            stdevSum += (thisCost-averageCost)**2
+
+        stdev = (stdevSum/(len(costList)-1))**0.5
+        
+        # Compute standard error
+        stderror = stdev/(len(costList)**0.5)
+    else:
+        averageCost = 0
+        stdev = 0
+        stderror = 0
 
     summaryString = "pick:{}, rad:{}, radratio:{}, mean:{}, stdev:{}, sem:{}".format(totalPickCount, randomPickCount, radRatio, averageCost, stdev, stderror)
     logFile.write(completeCommand + '\n')
@@ -84,13 +94,13 @@ def run_single(logId, logOutPath, duration, taskParams):
 
 
 if __name__ == '__main__':
-    logId = sys.argv[0]
-    duration = sys.argv[1]
-    taskParams = sys.argv[2]
-    if len(sys.argv) >= 4:
-        logOutPath = sys.argv[3]
+    logId = sys.argv[1]
+    duration = sys.argv[2]
+    taskParams = sys.argv[3]
+    if len(sys.argv) >= 5:
+        logOutPath = sys.argv[4]
     else:
         logOutPath = "log/log"
 
-    run_single(logId, logOutPath, duration, taskParams)
+    run_single(logId, logOutPath, int(duration), taskParams)
 
