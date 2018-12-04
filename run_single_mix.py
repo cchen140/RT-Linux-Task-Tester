@@ -81,7 +81,9 @@ def run_single_mix(tasksetId, logOutPath, duration, taskParams):
         stdev = 0
         stderror = 0
 
-    summaryString = "pick:{}, rad:{}, radratio:{}, mean:{}, stdev:{}, sem:{}".format(totalPickCount, randomPickCount, radRatio, averageCost, stdev, stderror)
+    numOfTasks = taskParams.strip().split(' ')[0]
+
+    summaryString = "{}: pick:{}, rad:{}, radratio:{}, mean:{}, stdev:{}, sem:{}".format(numOfTasks, totalPickCount, randomPickCount, radRatio, averageCost, stdev, stderror)
     logFile.write(completeCommand + '\n')
     logFile.write(summaryString + '\n')
 

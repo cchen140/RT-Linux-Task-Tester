@@ -16,12 +16,13 @@ def run_mix_begin_id(logId, duration, beginId, mixCmdFilePath):
             if tasksetIndex < int(beginId):
                 continue
 
-            result = run_single_mix(tasksetIndex, outLogFolderPath, duration, line)
+            print "■ Taskset {}".format(tasksetIndex)
+            result = run_single_mix(tasksetIndex, outLogFolderPath, duration, line.replace('\n', ''))
             if "rror" in result:
                 print result
                 exit(0)
             else:
-                summaryFile.write(result + "\n")
+                summaryFile.write(str(tasksetIndex) + ": " + result + "\n")
 		print result
 
 if __name__ == '__main__':
