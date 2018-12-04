@@ -84,6 +84,7 @@ def run_single_mix(tasksetId, logOutPath, duration, taskParams):
     summaryString = "{}: pick:{}, rad:{}, radratio:{}, mean:{}, stdev:{}, sem:{}".format(numOfTasks, totalPickCount, randomPickCount, radRatio, averageCost, stdev, stderror)
     logFile.write(completeCommand + '\n')
     logFile.write(summaryString + '\n')
+    logFile.flush()
 
     subprocess.Popen("dmesg >> {}/{}.txt".format(logOutPath, tasksetId), shell=True)
 
