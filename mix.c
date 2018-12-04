@@ -191,7 +191,7 @@ int main (int argc, char **argv)
 
 	printf("main thread [%ld]\n", gettid());
 
-	sleep(1);
+	//sleep(1);
 
 	for (i=0; i<num_of_tasks; i++) {
 		pthread_create(&threads[i], NULL, run_deadline, &task_params_instances[i]);
