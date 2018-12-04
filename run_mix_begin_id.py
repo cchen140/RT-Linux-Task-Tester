@@ -16,7 +16,7 @@ def run_mix_begin_id(logId, duration, beginId, mixCmdFilePath):
             if tasksetIndex < int(beginId):
                 continue
 
-            print "■ Taskset {}".format(tasksetIndex)
+            print "### Taskset {}".format(tasksetIndex)
             result = run_single_mix(tasksetIndex, outLogFolderPath, duration, line.replace('\n', ''))
             if "rror" in result:
                 print result
