@@ -11,7 +11,7 @@ def run_single_mix(tasksetId, logOutPath, duration, taskParams):
 
     if not os.path.exists(logOutPath):
         os.makedirs(logOutPath)
-    logFile = open(logOutPath + "/" + tasksetId + ".txt", "w")
+    logFile = open("{}/{}.txt".format(logOutPath, tasksetId), "w")
 
     # extractLogOutPath = logOutPath + "/extracts"
     # if not os.path.exists(extractLogOutPath):
@@ -85,7 +85,7 @@ def run_single_mix(tasksetId, logOutPath, duration, taskParams):
     logFile.write(completeCommand + '\n')
     logFile.write(summaryString + '\n')
 
-    subprocess.Popen("dmesg >> " + logOutPath + "/" + tasksetId + ".txt", shell=True)
+    subprocess.Popen("dmesg >> {}/{}.txt".format(logOutPath, tasksetId), shell=True)
 
     if dmesgLineCount > 2:
         print summaryString

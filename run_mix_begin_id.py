@@ -13,7 +13,7 @@ def run_mix_begin_id(logId, duration, beginId, mixCmdFilePath):
     with open(mixCmdFilePath, "r") as lines:
         for line in lines:
             tasksetIndex += 1
-            if tasksetIndex < beginId:
+            if tasksetIndex < int(beginId):
                 continue
 
             result = run_single_mix(tasksetIndex, outLogFolderPath, duration, line)
@@ -22,10 +22,11 @@ def run_mix_begin_id(logId, duration, beginId, mixCmdFilePath):
                 exit(0)
             else:
                 summaryFile.write(result + "\n")
+		print result
 
 if __name__ == '__main__':
     duration = sys.argv[1]
     beginId = sys.argv[2]
     mixCmdFilePath = sys.argv[3]
     logId = sys.argv[4]
-    run_mix_begin_id(logId, duration, beginId, mixCmdFilePath)
+    run_mix_begin_id(logId, int(duration), int(beginId), mixCmdFilePath)
