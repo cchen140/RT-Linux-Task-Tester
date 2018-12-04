@@ -3,7 +3,7 @@ cd security/sha/;./runme_small.sh @29
 #cd security/sha/;./runme_large.sh @153
 cd security/blowfish/;./runme_small.sh @258
 #cd security/blowfish/;./runme_large.sh @1870
-cd automotive/basicmath/;./runme_small.sh @135
+#cd automotive/basicmath/;./runme_small.sh @135
 #cd automotive/basicmath/;./runme_large.sh @3800
 cd automotive/bitcount/;./runme_small.sh @75
 #cd automotive/bitcount/;./runme_large.sh @460
