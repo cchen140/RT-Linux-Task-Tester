@@ -4,14 +4,14 @@ import time
 import subprocess
 
 
-def run_single(logId, logOutPath, duration, taskParams):
+def run_single_mix(tasksetId, logOutPath, duration, taskParams):
 
     if not os.path.exists('log'):
         os.makedirs('log')
 
     if not os.path.exists(logOutPath):
         os.makedirs(logOutPath)
-    logFile = open(logOutPath + "/" + logId + ".txt", "w")
+    logFile = open(logOutPath + "/" + tasksetId + ".txt", "w")
 
     # extractLogOutPath = logOutPath + "/extracts"
     # if not os.path.exists(extractLogOutPath):
@@ -35,7 +35,7 @@ def run_single(logId, logOutPath, duration, taskParams):
 
         lineSplits = line.strip().split(' ')
         pid = lineSplits[2]
-        print "Killing " + pid + "..."
+        #print "Killing " + pid + "..."
         subprocess.Popen("sudo kill -9 " + pid, shell=True)
         #retval = p.wait()
 
@@ -85,12 +85,15 @@ def run_single(logId, logOutPath, duration, taskParams):
     logFile.write(completeCommand + '\n')
     logFile.write(summaryString + '\n')
 
-    subprocess.Popen("dmesg >> " + logOutPath + "/" + logId + ".txt", shell=True)
+    subprocess.Popen("dmesg >> " + logOutPath + "/" + tasksetId + ".txt", shell=True)
 
     if dmesgLineCount > 2:
         print summaryString
+        return summaryString
     else:
-        print "Test error occurs for " + logId
+        print "Test error occurs for " + tasksetId
+        return "Test error occurs for " + tasksetId
+
 
 
 if __name__ == '__main__':
@@ -102,5 +105,5 @@ if __name__ == '__main__':
     else:
         logOutPath = "log/log"
 
-    run_single(logId, logOutPath, int(duration), taskParams)
+    run_single_mix(logId, logOutPath, int(duration), taskParams)
 
