@@ -39,8 +39,6 @@ def run_single_mix(tasksetId, logOutPath, duration, taskParams):
         subprocess.Popen("sudo kill -9 " + pid, shell=True)
         #retval = p.wait()
 
-    subprocess.Popen("sudo ./mix " + taskParams + " > console_black_hole", shell=True)
-
     contextSwitchCount = int(subprocess.Popen('dmesg | grep -c context', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT).stdout.readlines()[0])
     totalPickCount = int(subprocess.Popen('dmesg | grep -c picked', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT).stdout.readlines()[0])
     budgetCount = int(subprocess.Popen('dmesg | grep -c budget', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT).stdout.readlines()[0])
@@ -64,7 +62,7 @@ def run_single_mix(tasksetId, logOutPath, duration, taskParams):
             costSum += cost
             costList.append(cost)
 
-    if len(costList) > 0:
+    if len(costList) > 1:
         averageCost = costSum/len(costList)
 
         # Compute standard deviation of the context switch cost
@@ -93,8 +91,8 @@ def run_single_mix(tasksetId, logOutPath, duration, taskParams):
         print summaryString
         return summaryString
     else:
-        print "Test error occurs for " + tasksetId
-        return "Test error occurs for " + tasksetId
+        print "Test error occurs for {}".format(tasksetId)
+        return "Test error occurs for {}".format(tasksetId)
 
 
 
