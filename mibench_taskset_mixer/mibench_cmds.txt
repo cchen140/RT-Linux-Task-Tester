@@ -1,16 +1,16 @@
 cd /home/pi/test_scheduler/mibench/
 cd security/sha/;./runme_small.sh @29
 #cd security/sha/;./runme_large.sh @153
-#cd security/blowfish/;./runme_small.sh @258
+cd security/blowfish/;./runme_small.sh @258
 #cd security/blowfish/;./runme_large.sh @1870
-#cd automotive/basicmath/;./runme_small.sh @135
+cd automotive/basicmath/;./runme_small.sh @135
 #cd automotive/basicmath/;./runme_large.sh @3800
-#cd automotive/bitcount/;./runme_small.sh @75
+cd automotive/bitcount/;./runme_small.sh @75
 #cd automotive/bitcount/;./runme_large.sh @460
-#cd automotive/qsort/;./runme_small.sh @65
+cd automotive/qsort/;./runme_small.sh @65
 #cd automotive/qsort/;./runme_large.sh @370
-#cd automotive/susan/;./runme_small.sh @70
+cd automotive/susan/;./runme_small.sh @70
 #cd automotive/susan/;./runme_large.sh @450
-#cd consumer/typeset/;./runme_small.sh @210
+cd consumer/typeset/;./runme_small.sh @210
 #cd consumer/typeset/;./runme_large.sh @695
 
