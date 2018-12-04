@@ -23,6 +23,7 @@ def run_mix_begin_id(logId, duration, beginId, mixCmdFilePath):
                 exit(0)
             else:
                 summaryFile.write(str(tasksetIndex) + ": " + result + "\n")
+                summaryFile.flush()
 		print result
 
 if __name__ == '__main__':
