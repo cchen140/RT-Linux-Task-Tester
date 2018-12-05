@@ -34,7 +34,7 @@ def run_single_mix(tasksetId, logOutPath, duration, taskParams):
             continue
 
         lineSplits = line.strip().split(' ')
-        for element in lineSplits[2:]:
+        for element in lineSplits[1:]:
             if element != "":
                 pid = element
                 break
