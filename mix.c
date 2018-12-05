@@ -168,13 +168,13 @@ int main (int argc, char **argv)
 
 	// periods
 	for (i=0; i<num_of_tasks; i++) {
-		task_params_instances[i].period = atoi(argv[i+TASK_PARAMETER_OFFSET]);
+		task_params_instances[i].period = strtoull(argv[i+TASK_PARAMETER_OFFSET], NULL, 10);
 		task_params_instances[i].period *= (1000*1000);
 	}
 
 	// runtime
 	for (i=0; i<num_of_tasks; i++) {
-		task_params_instances[i].runtime = atoi(argv[i+TASK_PARAMETER_OFFSET+num_of_tasks]);
+		task_params_instances[i].runtime = strtoull(argv[i+TASK_PARAMETER_OFFSET+num_of_tasks], NULL, 10);
 		task_params_instances[i].runtime *= (1000*1000);
 	}
 
