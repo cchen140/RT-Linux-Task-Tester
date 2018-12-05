@@ -34,7 +34,11 @@ def run_single_mix(tasksetId, logOutPath, duration, taskParams):
             continue
 
         lineSplits = line.strip().split(' ')
-        pid = lineSplits[2]
+        for element in lineSplits[2:]:
+            if element != "":
+                pid = element
+                break
+        #pid = lineSplits[2]
         #print "Killing " + pid + "..."
         subprocess.Popen("sudo kill -9 " + pid, shell=True)
         #retval = p.wait()
