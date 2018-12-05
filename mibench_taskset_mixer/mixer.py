@@ -17,17 +17,24 @@ def getRadNumList(max, count):
         radIntList.append(random.randint(0, max))
     return radIntList
 
+def adjustPeriod(period, cTime):
+    topNum = 2**32
+    if period - (period/topNum)*topNum < cTime:
+        return period + cTime
+    else:
+        return period
+
 if __name__ == '__main__':
     parser = optparse.OptionParser()
 
     parser.add_option('-t', '--tasksets',
-                      action="store", dest="tasksetFile", default="../sample_tasksets/out4.txt",
+                      action="store", dest="tasksetFile", default="../sample_tasksets/out1.txt",
                       help="the path of a file containing tasksets")
     parser.add_option('-m', '--mibench',
                       action="store", dest="mibenchCmdFile", default="mibench_cmds.txt",
                       help="the path of a file containing mibench commands")
     parser.add_option('-o', '--out',
-                      action="store", dest="outFile", default="out.txt",
+                      action="store", dest="outFile", default="out1.txt",
                       help="the path of a file containing tasksets")
     parser.add_option('-r', '--ratio',
                       action="store", dest="mibenchRatio", default="0.5",
@@ -101,7 +108,9 @@ if __name__ == '__main__':
         for i in xrange(numOfTasks-numOfMibenchTasks):
             outStr += " " + taskset.periods[i].strip()
         for i in xrange(numOfMibenchTasks):
-            outStr += " " + str(int( mibenchCmdCtimeList[radMibenchIndexList[i]] / float(taskset.utils[i+(numOfTasks-numOfMibenchTasks)]) ))
+            thisMiBenchTaskPeriod = int( mibenchCmdCtimeList[radMibenchIndexList[i]] / float(taskset.utils[i+(numOfTasks-numOfMibenchTasks)]) )
+            thisMiBenchTaskPeriod = adjustPeriod(thisMiBenchTaskPeriod, mibenchCmdCtimeList[radMibenchIndexList[i]])
+            outStr += " " + str(thisMiBenchTaskPeriod)
         '''Wcets'''
         for i in xrange(numOfTasks-numOfMibenchTasks):
             outStr += " " + taskset.wcets[i].strip()
