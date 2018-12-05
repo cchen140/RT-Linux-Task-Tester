@@ -109,7 +109,7 @@ if __name__ == '__main__':
             outStr += " " + taskset.periods[i].strip()
         for i in xrange(numOfMibenchTasks):
             thisMiBenchTaskPeriod = int( mibenchCmdCtimeList[radMibenchIndexList[i]] / float(taskset.utils[i+(numOfTasks-numOfMibenchTasks)]) )
-            thisMiBenchTaskPeriod = adjustPeriod(thisMiBenchTaskPeriod, mibenchCmdCtimeList[radMibenchIndexList[i]])
+            #thisMiBenchTaskPeriod = adjustPeriod(thisMiBenchTaskPeriod, mibenchCmdCtimeList[radMibenchIndexList[i]])
             outStr += " " + str(thisMiBenchTaskPeriod)
         '''Wcets'''
         for i in xrange(numOfTasks-numOfMibenchTasks):
