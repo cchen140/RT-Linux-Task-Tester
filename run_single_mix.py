@@ -22,12 +22,13 @@ def run_single_mix(tasksetId, logOutPath, duration, taskParams):
     subprocess.Popen("sudo dmesg -c > console_black_hole", shell=True)
 
     completeCommand = "sudo ./mix {} {} > console_black_hole".format(duration, taskParams)
-    subprocess.Popen(completeCommand, shell=True)
+    mixLines = subprocess.Popen(completeCommand, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     #subprocess.Popen("sudo ./mix 10 1 100 1 > console_black_hole", shell=True)
 
-    time.sleep(duration)
+    #time.sleep(duration)
 
     # Kill all test threads.
+    '''
     psLines = subprocess.Popen('ps -e -T | grep mix', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     for line in psLines.stdout.readlines():
         if 'grep' in line:
@@ -42,7 +43,8 @@ def run_single_mix(tasksetId, logOutPath, duration, taskParams):
         #print "Killing " + pid + "..."
         subprocess.Popen("sudo kill -9 " + pid, shell=True)
         #retval = p.wait()
-
+    '''
+    
     contextSwitchCount = int(subprocess.Popen('dmesg | grep -c context', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT).stdout.readlines()[0])
     totalPickCount = int(subprocess.Popen('dmesg | grep -c picked', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT).stdout.readlines()[0])
     budgetCount = int(subprocess.Popen('dmesg | grep -c budget', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT).stdout.readlines()[0])
