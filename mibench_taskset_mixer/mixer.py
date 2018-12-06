@@ -17,13 +17,6 @@ def getRadNumList(max, count):
         radIntList.append(random.randint(0, max))
     return radIntList
 
-def adjustPeriod(period, cTime):
-    topNum = 2**32
-    if period - (period/topNum)*topNum < cTime:
-        return period + cTime
-    else:
-        return period
-
 if __name__ == '__main__':
     parser = optparse.OptionParser()
 
@@ -96,27 +89,49 @@ if __name__ == '__main__':
                 continue
 
     print str(len(tasksetList)) + " tasksets are added."
-
-    outFile = open(options.outFile, "w")
+    tasksetOutStrList = []
     for taskset in tasksetList:
         numOfTasks = len(taskset.periods)
         numOfMibenchTasks = int(math.ceil(numOfTasks * float(options.mibenchRatio)))
-        radMibenchIndexList = getRadNumList(len(mibenchCmdList)-1, numOfMibenchTasks)
+        #radMibenchIndexList = getRadNumList(len(mibenchCmdList)-1, numOfMibenchTasks)
+        radMibenchIndexList = [0]*numOfMibenchTasks
 
-        outStr = str(numOfTasks)
+        tasksetOutStr = str(numOfTasks)
         '''Periods'''
         for i in xrange(numOfTasks-numOfMibenchTasks):
-            outStr += " " + taskset.periods[i].strip()
+            tasksetOutStr += " " + taskset.periods[i].strip()
+        shouldUseLastTaskset = False
         for i in xrange(numOfMibenchTasks):
-            thisMiBenchTaskPeriod = int( mibenchCmdCtimeList[radMibenchIndexList[i]] / float(taskset.utils[i+(numOfTasks-numOfMibenchTasks)]) )
-            #thisMiBenchTaskPeriod = adjustPeriod(thisMiBenchTaskPeriod, mibenchCmdCtimeList[radMibenchIndexList[i]])
-            outStr += " " + str(thisMiBenchTaskPeriod)
+            validMibenchTaskIsFound =False
+            for j in xrange(10):
+                radMibenchIndexList[i] = random.randint(0, len(mibenchCmdList)-1)
+                thisMiBenchTaskPeriod = int( mibenchCmdCtimeList[radMibenchIndexList[i]] / float(taskset.utils[i+(numOfTasks-numOfMibenchTasks)]) )
+                if thisMiBenchTaskPeriod < 5000:  # 5 second
+                    validMibenchTaskIsFound = True
+                    break
+                else:
+                    # Let's try again
+                    continue
+            if validMibenchTaskIsFound == True:
+                tasksetOutStr += " " + str(thisMiBenchTaskPeriod)
+            else:
+                shouldUseLastTaskset = True
+                break
+        if shouldUseLastTaskset == True:
+            tasksetOutStrList.append(tasksetOutStrList[-1])
+            continue # Skip generating this taskset and move to generating the next one
+
         '''Wcets'''
         for i in xrange(numOfTasks-numOfMibenchTasks):
-            outStr += " " + taskset.wcets[i].strip()
+            tasksetOutStr += " " + taskset.wcets[i].strip()
         for i in xrange(numOfMibenchTasks):
-            outStr += " " +  str(mibenchCmdCtimeList[radMibenchIndexList[i]])
+            tasksetOutStr += " " + str(mibenchCmdCtimeList[radMibenchIndexList[i]])
         '''Mibench Commands'''
         for i in xrange(numOfMibenchTasks):
-            outStr += " \"" +  mibenchCmdList[radMibenchIndexList[i]] + "\""
-        outFile.write(outStr + "\n")
+            tasksetOutStr += " \"" + mibenchCmdList[radMibenchIndexList[i]] + "\""
+
+        tasksetOutStrList.append(tasksetOutStr)
+
+    outFile = open(options.outFile, "w")
+    for tasksetOutStr in tasksetOutStrList:
+        outFile.write(tasksetOutStr + "\n")
