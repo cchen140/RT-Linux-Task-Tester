@@ -23,6 +23,7 @@ def run_single_mix(tasksetId, logOutPath, duration, taskParams):
 
     completeCommand = "sudo ./mix {} {} > console_black_hole".format(duration, taskParams)
     mixLines = subprocess.Popen(completeCommand, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    mixLines.wait()
     #subprocess.Popen("sudo ./mix 10 1 100 1 > console_black_hole", shell=True)
 
     #time.sleep(duration)
