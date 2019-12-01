@@ -156,7 +156,10 @@ int main (int argc, char **argv)
 	int exp_time_second = 1;
 
 	if (argc < 3) {
-		printf("Arguments are wrong.");
+		printf("Arguments are wrong.\r\n");
+		printf("Usage (w/o mibench): ./mix [duration_sec] [task_num] [T_0] [T_1] [T_i] [C_0] [C_1] [C_i]\r\n");
+		printf("Usage (w/ mibench): ./mix [duration_sec] [task_num] [T_0] [T_1] [T_i] [C_0] [C_1] [C_i] \"task_i_cmd\"\r\n");
+		printf("\t- when N commands are given, the last N tasks are assigned to them.\r\n");
 		return 0;
 	}
 
