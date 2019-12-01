@@ -10,6 +10,14 @@
 #include <sys/syscall.h>
 #include <pthread.h>
 
+/* test specific configurations */
+//#define PRINT_FIRST_START_TIME
+#ifdef PRINT_FIRST_START_TIME
+#include <time.h>	// For timespec and clock_gettime(). Remember to use -lrt when compiling for ARM CPU.
+struct timespec timeInstance;
+#endif
+
+
 #define gettid() syscall(__NR_gettid)
 
 #define SCHED_DEADLINE	6
@@ -102,6 +110,10 @@ void *run_deadline(void *data)
 	unsigned int flags = 0;
 	int busy_loop_us_time = 0;
 
+	#ifdef PRINT_FIRST_START_TIME
+	char start_time_printed = 0;
+	#endif
+
 	printf("deadline thread started [%ld] %lld, %lld \n", gettid(), ((task_params*)data)->runtime, ((task_params*)data)->period);
 
 	if (((task_params*)data)->mibench_cmd != NULL) {
@@ -133,6 +145,13 @@ void *run_deadline(void *data)
 		while (!done) {
 			busy_loop_us(busy_loop_us_time);
 			sched_yield();
+			#ifdef PRINT_FIRST_START_TIME
+			if (start_time_printed == 0) {
+				clock_gettime(CLOCK_MONOTONIC, &timeInstance);
+				printf("[%ld] start time = %ld ns\r\n", gettid(), timeInstance.tv_nsec);
+				start_time_printed = 1;
+			}
+			#endif
 		}
 	} else {
 		while (!done) {
