@@ -148,7 +148,7 @@ void *run_deadline(void *data)
 			#ifdef PRINT_FIRST_START_TIME
 			if (start_time_printed == 0) {
 				clock_gettime(CLOCK_MONOTONIC, &timeInstance);
-				printf("[%ld] start time = %ld ns\r\n", gettid(), timeInstance.tv_nsec);
+				printf("[%ld] start time = %ld ns, task phase = %lld ns\r\n", gettid(), timeInstance.tv_nsec, timeInstance.tv_nsec%((task_params*)data)->period);
 				start_time_printed = 1;
 			}
 			#endif
