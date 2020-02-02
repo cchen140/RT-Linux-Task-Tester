@@ -11,7 +11,7 @@
 #include <pthread.h>
 
 /* test specific configurations */
-//#define PRINT_FIRST_START_TIME
+#define PRINT_FIRST_START_TIME
 #ifdef PRINT_FIRST_START_TIME
 #include <time.h>	// For timespec and clock_gettime(). Remember to use -lrt when compiling for ARM CPU.
 struct timespec timeInstance;
@@ -179,6 +179,7 @@ int main (int argc, char **argv)
 		printf("Usage (w/o mibench): ./mix [duration_sec] [task_num] [T_0] [T_1] [T_i] [C_0] [C_1] [C_i]\r\n");
 		printf("Usage (w/ mibench): ./mix [duration_sec] [task_num] [T_0] [T_1] [T_i] [C_0] [C_1] [C_i] \"task_i_cmd\"\r\n");
 		printf("\t- when N commands are given, the last N tasks are assigned to them.\r\n");
+		printf("\t- all times are in ms (and then converted into ns internally.)\r\n");
 		return 0;
 	}
 
