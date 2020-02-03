@@ -11,10 +11,12 @@
 #include <pthread.h>
 
 /* test specific configurations */
+//#define TEST_BUSY_LOOP_ACCURACY
 #define PRINT_FIRST_START_TIME
+
 #ifdef PRINT_FIRST_START_TIME
 #include <time.h>	// For timespec and clock_gettime(). Remember to use -lrt when compiling for ARM CPU.
-struct timespec timeInstance;
+typedef unsigned long long u64;
 #endif
 
 
@@ -111,6 +113,7 @@ void *run_deadline(void *data)
 	int busy_loop_us_time = 0;
 
 	#ifdef PRINT_FIRST_START_TIME
+	struct timespec timeInstance;
 	char start_time_printed = 0;
 	#endif
 
@@ -148,11 +151,13 @@ void *run_deadline(void *data)
 			#ifdef PRINT_FIRST_START_TIME
 			if (start_time_printed == 0) {
 				clock_gettime(CLOCK_MONOTONIC, &timeInstance);
-				printf("[%ld] start time = %ld ns, task phase = %lld ns\r\n", gettid(), timeInstance.tv_nsec, timeInstance.tv_nsec%((task_params*)data)->period);
+				//printf("[%ld] start time = %lld us, task phase = %lld us\r\n", gettid(), (u64)(timeInstance.tv_sec*1000*1000) + (u64)(timeInstance.tv_nsec/1000), ((u64)(timeInstance.tv_sec*1000*1000) + (u64)(timeInstance.tv_nsec/1000))%(((task_params*)data)->period/1000));
 				start_time_printed = 1;
 			}
 			#endif
 		}
+
+		printf("[%ld] start time = %lld us, task phase = %lld us\r\n", gettid(), (u64)(timeInstance.tv_sec*1000*1000) + (u64)(timeInstance.tv_nsec/1000), ((u64)(timeInstance.tv_sec*1000*1000) + (u64)(timeInstance.tv_nsec/1000))%(((task_params*)data)->period/1000));
 	} else {
 		while (!done) {
                         system(((task_params*)data)->mibench_cmd);
@@ -173,6 +178,16 @@ int main (int argc, char **argv)
 	int num_of_tasks, num_of_mibench_tasks;
 	int i, j;
 	int exp_time_second = 1;
+
+	#ifdef TEST_BUSY_LOOP_ACCURACY
+	struct timespec timeBegin, timeEnd;
+	clock_gettime(CLOCK_MONOTONIC, &timeBegin);
+	busy_loop_us(1000);
+	clock_gettime(CLOCK_MONOTONIC, &timeEnd);
+	printf("Testing busy_loop_us(1000): actual time elapsed = %ld us \r\n", (timeEnd.tv_nsec-timeBegin.tv_nsec)/1000);
+	return 0;
+	#endif
+
 
 	if (argc < 3) {
 		printf("Arguments are wrong.\r\n");
